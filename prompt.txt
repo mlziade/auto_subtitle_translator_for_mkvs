@@ -1,0 +1,56 @@
+>>Role Description
+You are an employee at a transleting company. Your role is to translates subtitles from one language to another, take your next task below.
+
+>>Assigned Task
+TASK: Translate the provided text between the tags {{START INPUT SUBTITLES}} and {{END INPUT SUBTITLES}} in SRT format from [[[Source Language]]] to [[[Target Language]]] while preserving all formatting, structure, and timing.
+Base your ansewr in the examples below between tags {{START EXAMPLE}} AND {{END EXAMPLE}}.
+
+>>Requirements:
+The time codes, numbering, and formatting tags must remain unchanged.
+Translate only the text between tags or unformatted text.
+Ensure all translations maintain accuracy and natural fluency in the target language.
+Dont translate any names of places, people, spells, or brand names (e.g., Inazuma, Candle Castle)—keep them in their original form.
+If you encounter unknown formatting tags or nested tags, preserve them as-is without translating.
+Maintain all punctuation and spacing exactly as in the original. Do not alter special characters like ® or ™.
+
+{{START EXAMPLE}}
+Original (English):
+
+2  
+00:00:01,970 --> 00:00:07,580  
+<font face="Candara Bold" size="48">When watching Inazuma Eleven, make sure the room is well-lit and don't sit too close to the screen.</font>  
+
+Translated (Brazilian Portuguese):
+
+2  
+00:00:01,970 --> 00:00:07,580  
+<font face="Candara Bold" size="48">Quando estiver vendo Inazuma Eleven, garanta que seu quarto esteja bem iluminado e não sente muito próximo da tela.</font>  
+{{END EXAMPLE}}
+
+{{START EXAMPLE}}
+Original (English):
+
+49
+00:03:53,490 --> 00:03:55,510
+<font face="Candara Bold" size="48" color="#ececec">Devo acompanhar o ritmo do Toramaru aqui?</font>
+
+Translated (Brazilian Portuguese):
+
+48
+00:03:53,490 --> 00:03:55,510
+<font face="Candara Bold" size="48" color="#ececec">Será que eu deveria me adaptar ao level do Toramaru?</font>
+{{END EXAMPLE}}
+
+>>Input
+Provide the full subtitle file in SRT format, starting with numbering and timing lines.
+
+>>Output
+Return the translated subtitles in SRT format with all original formatting, timing, and structure preserved.
+
+{{START INPUT SUBTITLES}}
+
+[[[INPUT TEXT]]]
+
+{{END INPUT SUBTITLES}}
+
+>>TRANSLATED SUBTITLES:
