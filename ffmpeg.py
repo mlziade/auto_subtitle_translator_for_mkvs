@@ -26,7 +26,7 @@ class FFmpeg:
         except subprocess.CalledProcessError as e:
             print(f"Error occurred: {e}")
             
-    def add_subtitle_to_mkv(self, input_mkv_file_path: str, subtitle_file_path: str, output_mkv_file_path: str):
+    def add_subtitle_to_mkv(self, input_mkv_file_path: str, subtitle_file_path: str):
         """
         Adds subtitles to an MKV file using FFmpeg.
 

@@ -1,8 +1,9 @@
 import os
 import ollama
 import ffmpeg
+from dotenv import load_dotenv
 
-def translate_episodes(input_files_folder_path: str, originals_subs_folder_path: str, translated_subs_folder_path: str, final_files_folder_path: str):
+def translate_episodes(input_files_folder_path: str, originals_subs_folder_path: str, translated_subs_folder_path: str):
     """
     Translates subtitles from MKV files and adds the translated subtitles back to the MKV files.
     
@@ -37,15 +38,19 @@ def translate_episodes(input_files_folder_path: str, originals_subs_folder_path:
                 output_language = "pt-br"
             )
             
+            output_file_path = os.path.join(translated_subs_folder_path, f"{file_name}.srt")
             # Add the translated subtitles to the MKV file
-            ffmpeg.add_subtitle_to_mkv(
+            ffmpeg_service.add_subtitle_to_mkv(
                 input_mkv_file_path = mkv_file_path,
                 subtitle_file_path = translated_subs_path,
-                output_mkv_file_path = os.path.join(final_files_folder_path, file_name)
             )
             
 
 def main():
+    # Specify the path to your .env file
+    dotenv_path = '.env'
+    load_dotenv(dotenv_path = dotenv_path)
+
     # Get the paths from the environment variables
     input_files_folder_path =  os.getenv("FILES_FOLDER_COMPLETE_PATH")
     originals_subs_folder_path = os.getenv("ORIGINAL_SUBS_FOLDER_COMPLETE_PATH")
@@ -55,7 +60,7 @@ def main():
     translate_episodes(
         input_files_folder_path, 
         originals_subs_folder_path, 
-        translated_subs_folder_path
+        translated_subs_folder_path,
     )
     
 if __name__ == "__main__":
